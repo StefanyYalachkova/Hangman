@@ -1,0 +1,58 @@
+body {
+  padding: 150px;
+  background-color: #f1d2e0e1;
+}
+
+button[name="nemGameButton"] {
+  font-family: sans-serif;
+  background-color: rgb(0, 0, 255);
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 8px;
+  height: 100%;
+  cursor: pointer;
+  margin: auto;
+  position: relative;
+  left: 45%;
+}
+
+button[name="wordButton"] {
+  font-family: sans-serif;
+  background-color: rgb(0, 0, 255);
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  height: 100%;
+  cursor: pointer;
+  margin: auto;
+  position: relative;
+  left: 2%;
+}
+
+form,
+#container,
+h1 {
+  text-align: center;
+  padding: 50px;
+}
+
+#wordField {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h2 {
+  text-align: inherit;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 15px;
+}
+
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
