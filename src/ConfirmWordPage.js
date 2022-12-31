@@ -2,7 +2,7 @@ import { Button, TextField } from '@mui/material';
 
 const ConfirmWordPage = (props) => {
     const { word, setWord, isValidInput } = props;
-    const shouldDisableWordButton = props.word.length < 3;
+    const shouldDisableWordButton = word.length < 3;
 
     const handleHangmanBoard = (event) => {
         event.preventDefault();
@@ -15,6 +15,7 @@ const ConfirmWordPage = (props) => {
             <TextField
                 autoFocus={true}
                 type="password"
+                inputMode="tel"
                 name="word"
                 placeholder='Allow only alphabets'
                 value={word}

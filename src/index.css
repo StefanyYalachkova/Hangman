@@ -36,6 +36,13 @@ h1 {
   padding: 50px;
 }
 
+.letter {
+  text-align: inline-block;
+  padding: 20px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
 #wordField {
   padding: 20px;
   font-weight: bold;
@@ -55,4 +62,52 @@ h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.wrongLetters {
+  position: absolute;
+  top: 300px;
+  right: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.word {
+  display: flex;
+  position: absolute;
+  bottom: 150px;
+  left: 42%;
+}
+
+.winner-container {
+  background-color: rgba(109, 87, 87, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner {
+  background: #9ac0e5;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.winner button {
+  font-family: sans-serif;
+  background-color: rgb(0, 0, 255);
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  height: 100%;
+  cursor: pointer;
+  margin: auto;
+  position: relative;
+  left: 0%;
 }

@@ -1,24 +1,28 @@
-import startImg from './images/0.jpg';
+import { useEffect } from 'react';
+import { Images } from './Images';
+import { Word } from './Word';
+import { WrongLetters } from './WrongLetters';
 
 const StartOfTheGame = (props) => {
-    const { word } = props;
+    const { wrongLetters, word, correctLetters, setEndGamePage } = props;
 
-    const writeUnderscore = () => {
-        let underscore = ' ';
-
-        for (let i = 0; i < word.length; i++) {
-            underscore += ' _ ';
-        };
-
-        return underscore;
-    };
+    useEffect(() => {
+        setEndGamePage(true);
+    }, [wrongLetters, word, correctLetters]);
 
     return (
         <div>
-            <img src={startImg} alt="startImg" className="img" />
-            <span><h1>{writeUnderscore()}</h1></span>
+            <Images
+                wrongLetters={wrongLetters}
+            />
+            <Word
+                word={word}
+                correctLetters={correctLetters}
+            />
+            <WrongLetters
+                wrongLetters={wrongLetters}
+            />
         </div>
-
     );
 };
 
