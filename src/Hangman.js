@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { ConfirmWordPage } from './ConfirmWordPage';
-import { EndGame } from './EndGame';
 import { isValidWord } from './hangmanUtils';
 import StartingScreen from './StartingScreen';
 import { StartOfTheGame } from './StartOfTheGame';
@@ -13,7 +12,6 @@ const Hangman = () => {
     const [readyForPlay, setReadyForPlay] = useState(false);
     const [viewConfirmWordPage, setViewConfirmWordPage] = useState(false);
     const [viewStartGamePage, setStartGamePage] = useState(false);
-    const [viewEndGamePage, setEndGamePage] = useState(false);
     const [restartGame, setRestartGame] = useState(false);
 
     useEffect(() => {
@@ -61,32 +59,10 @@ const Hangman = () => {
         setReadyForPlay(true);
     };
 
-    const renderNewGame = () => {
+    const renderNewRound = () => {
         setRestartGame(true);
         setWord('');
-        setCorrectLetters([]);
-        setWrongLetters([]);
-        setReadyForPlay(true);
-        setEndGamePage(true);
-    };
-
-    const renderEndGame = () => {
-        return (
-            <div>
-                {viewEndGamePage
-                    ? <EndGame
-                        word={word}
-                        correctLetters={correctLetters}
-                        wrongLetters={wrongLetters}
-                        setReadyForPlay={setReadyForPlay}
-                        renderNewGame={renderNewGame}
-                        setViewConfirmWordPage={setViewConfirmWordPage}
-                        setEndGamePage={setEndGamePage}
-                    />
-                    : ''
-                }
-            </div >
-        );
+        setStartGamePage(false);
     };
 
     const renderStartGamePage = () => {
@@ -98,9 +74,12 @@ const Hangman = () => {
                             wrongLetters={wrongLetters}
                             word={word}
                             correctLetters={correctLetters}
-                            setEndGamePage={setEndGamePage}
+                            setStartGamePage={setStartGamePage}
+                            restartGame={restartGame}
+                            setCorrectLetters={setCorrectLetters}
+                            setWrongLetters={setWrongLetters}
+                            renderNewRound={renderNewRound}
                         />
-                        {renderEndGame()}
                     </div>
                     : ''
                 }
@@ -120,6 +99,7 @@ const Hangman = () => {
                     />
                     : <StartingScreen
                         onClick={handleConfirmWordPage}
+                        restartGame={restartGame}
                     />
                 }
             </div>

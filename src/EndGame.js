@@ -3,14 +3,20 @@ import React, { useEffect } from 'react';
 import { checkWin } from './hangmanUtils';
 
 const EndGame = (props) => {
-    const { word, correctLetters, wrongLetters, renderNewGame } = props;
+    const { word, correctLetters, wrongLetters, renderNewRound, setStartGamePage } = props;
     let message = '';
     let gameOver = false;
 
     const handleGame = (event) => {
         event.preventDefault();
-        renderNewGame();
+        renderNewRound();
     };
+
+    useEffect(() => {
+        if (checkWin(word, correctLetters, wrongLetters) !== '') {
+            setStartGamePage(true);
+        };
+    }, [handleGame]);
 
     if (checkWin(word, correctLetters, wrongLetters) === 'win') {
         message = 'Game over! You win!';
@@ -27,7 +33,14 @@ const EndGame = (props) => {
                 <div className="winner-container">
                     <div className="winner">
                         <h2>{message}</h2>
-                        <Button autoFocus={true} name="nemGameButton" variant="contained" type="submit" onClick={handleGame}> New Game </Button>
+                        <Button
+                            autoFocus={true}
+                            name="nemGameButton"
+                            variant="contained"
+                            type="submit"
+                            onClick={handleGame}
+                        > New Game
+                        </Button>
                     </div>
                 </div>
                 : ''

@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const WrongLetters = (props) => {
-    const { wrongLetters } = props;
+    const { wrongLetters, restartGame, setWrongLetters } = props;
+
+    useEffect(() => {
+        if (restartGame) {
+            setWrongLetters([]);
+        };
+    }, [restartGame]);
 
     return (
         <div className="wrongLetters">
@@ -11,7 +17,8 @@ const WrongLetters = (props) => {
                 }
                 {wrongLetters
                     .map((letter, i) => <span key={i}>{letter}</span>)
-                    .reduce((prev, curr) => prev === null ? [curr] : [prev, ', ', curr], null)}
+                    .reduce((prev, curr) => prev === null ? [curr] : [prev, ', ', curr], null)
+                }
             </div>
         </div>
     );

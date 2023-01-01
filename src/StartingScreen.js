@@ -11,7 +11,14 @@ const StartingScreen = (props) => {
     return (
         <div className="container" >
             <h1> H a n g m a n </h1>
-            <Button autoFocus={true} name="nemGameButton" variant="contained" type="submit" onClick={handleNewGame}> New Game </Button>
+            <Button
+                autoFocus={true}
+                name="nemGameButton"
+                variant="contained"
+                type="submit"
+                onClick={handleNewGame}
+            > New Game
+            </Button>
         </div>
     );
 };

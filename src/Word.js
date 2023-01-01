@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Word = (props) => {
-    const { word, correctLetters } = props;
+    const { word, correctLetters, restartGame, setCorrectLetters } = props;
+
+    useEffect(() => {
+        if (restartGame) {
+            setCorrectLetters([]);
+        };
+    }, [restartGame]);
 
     return (
         <div className="word">
@@ -10,7 +16,7 @@ const Word = (props) => {
                     <span className="letter" key={i}>
                         {correctLetters.includes(letter) ? letter : '_'}
                     </span>
-                )
+                );
             })}
         </div>
     )
