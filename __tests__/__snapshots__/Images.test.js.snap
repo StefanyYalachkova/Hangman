@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Images test renders correctly 1`] = `
+<img
+  alt="image1"
+  className="img"
+  src="test-file-stub"
+/>
+`;

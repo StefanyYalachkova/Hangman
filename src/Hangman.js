@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ConfirmWordPage } from './ConfirmWordPage';
 import { isValidWord } from './hangmanUtils';
-import StartingScreen from './StartingScreen';
+import { StartingScreen } from './StartingScreen';
 import { StartOfTheGame } from './StartOfTheGame';
 
 const Hangman = () => {

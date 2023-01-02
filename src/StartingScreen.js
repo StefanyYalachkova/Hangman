@@ -1,5 +1,4 @@
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 
 const StartingScreen = (props) => {
 
@@ -23,4 +22,4 @@ const StartingScreen = (props) => {
     );
 };
 
-export default StartingScreen;
+export { StartingScreen };
