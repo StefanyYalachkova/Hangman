@@ -38,3 +38,4 @@ const ConfirmWordPage = (props) => {
 };
 
 export { ConfirmWordPage };
+

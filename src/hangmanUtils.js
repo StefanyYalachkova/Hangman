@@ -23,3 +23,4 @@ const checkWin = (word, correctLetters, wrongLetters) => {
 };
 
 export { isValidWord, checkWin };
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ConfirmWordPage } from './ConfirmWordPage';
 import { isValidWord } from './hangmanUtils';
 import { StartingScreen } from './StartingScreen';
@@ -13,6 +13,13 @@ const Hangman = () => {
     const [viewConfirmWordPage, setViewConfirmWordPage] = useState(false);
     const [viewStartGamePage, setStartGamePage] = useState(false);
     const [restartGame, setRestartGame] = useState(false);
+
+    useEffect(() => {
+        if (restartGame) {
+            setWrongLetters([]);
+            setCorrectLetters([]);
+        };
+    }, [restartGame]);
 
     const onWordPage = (event) => {
         const { value } = event.target;

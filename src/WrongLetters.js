@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const WrongLetters = (props) => {
-    const { wrongLetters, restartGame, setWrongLetters } = props;
-
-    useEffect(() => {
-        if (restartGame) {
-            setWrongLetters([]);
-        };
-    }, [restartGame]);
+    const { wrongLetters } = props;
 
     return (
         <div className="wrongLetters">

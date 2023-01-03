@@ -1,27 +1,26 @@
 import { Button } from '@mui/material';
 import React, { useEffect } from 'react';
-import { checkWin } from './hangmanUtils';
 
 const EndGame = (props) => {
-    const { word, correctLetters, wrongLetters, renderNewRound, setStartGamePage } = props;
+    const { word, checkWin, renderNewRound, setStartGamePage } = props;
     let message = '';
     let gameOver = false;
 
-    const handleGame = (event) => {
+    const handleNewGame = (event) => {
         event.preventDefault();
         renderNewRound();
     };
 
     useEffect(() => {
-        if (checkWin(word, correctLetters, wrongLetters) !== '') {
+        if (checkWin !== '') {
             setStartGamePage(true);
         };
-    }, [handleGame]);
+    }, [handleNewGame]);
 
-    if (checkWin(word, correctLetters, wrongLetters) === 'win') {
+    if (checkWin === 'win') {
         message = 'Game over! You win!';
         gameOver = true;
-    } else if (checkWin(word, correctLetters, wrongLetters) === 'loss') {
+    } else if (checkWin === 'loss') {
         message = `Game over! You lost! The word was: ${word}`;
         gameOver = true;
     };
@@ -38,7 +37,7 @@ const EndGame = (props) => {
                             name="nemGameButton"
                             variant="contained"
                             type="submit"
-                            onClick={handleGame}
+                            onClick={handleNewGame}
                         > New Game
                         </Button>
                     </div>

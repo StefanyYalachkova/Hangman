@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Word = (props) => {
-    const { word, correctLetters, restartGame, setCorrectLetters } = props;
-
-    useEffect(() => {
-        if (restartGame) {
-            setCorrectLetters([]);
-        };
-    }, [restartGame]);
+    const { word, correctLetters } = props;
 
     return (
         <div className="word">
