@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ConfirmWordPage } from './ConfirmWordPage';
 import { isValidWord } from './hangmanUtils';
 import { StartingScreen } from './StartingScreen';
@@ -13,31 +13,6 @@ const Hangman = () => {
     const [viewConfirmWordPage, setViewConfirmWordPage] = useState(false);
     const [viewStartGamePage, setStartGamePage] = useState(false);
     const [restartGame, setRestartGame] = useState(false);
-
-    useEffect(() => {
-        const handleKeydown = event => {
-            const { key, keyCode } = event;
-
-            if (readyForPlay && keyCode >= 65 && keyCode <= 90) {
-                const letter = key.toLowerCase();
-
-                if (word.includes(letter)) {
-                    if (!correctLetters.includes(letter)) {
-                        setCorrectLetters(currentLetters => [...currentLetters, letter]);
-                    };
-                } else {
-                    if (!wrongLetters.includes(letter) && wrongLetters.length < 6) {
-                        setWrongLetters(currentLetters => [...currentLetters, letter]);
-                    };
-                };
-            };
-        };
-
-        window.addEventListener('keydown', handleKeydown);
-
-        return () => window.removeEventListener('keydown', handleKeydown);
-
-    }, [word, correctLetters, wrongLetters, readyForPlay]);
 
     const onWordPage = (event) => {
         const { value } = event.target;
@@ -65,6 +40,24 @@ const Hangman = () => {
         setStartGamePage(false);
     };
 
+    const handleKeydown = (event) => {
+        const { key, keyCode } = event;
+
+        if (readyForPlay && keyCode >= 65 && keyCode <= 90) {
+            const letter = key.toLowerCase();
+
+            if (word.includes(letter)) {
+                if (!correctLetters.includes(letter)) {
+                    setCorrectLetters(currentLetters => [...currentLetters, letter]);
+                };
+            } else {
+                if (!wrongLetters.includes(letter) && wrongLetters.length < 6) {
+                    setWrongLetters(currentLetters => [...currentLetters, letter]);
+                };
+            };
+        };
+    };
+
     const renderStartGamePage = () => {
         return (
             <div>
@@ -79,6 +72,7 @@ const Hangman = () => {
                             setCorrectLetters={setCorrectLetters}
                             setWrongLetters={setWrongLetters}
                             renderNewRound={renderNewRound}
+                            handleKeydown={handleKeydown}
                         />
                     </div>
                     : ''
