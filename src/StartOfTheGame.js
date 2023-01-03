@@ -6,7 +6,7 @@ import { Word } from './Word';
 import { WrongLetters } from './WrongLetters';
 
 const StartOfTheGame = (props) => {
-    const { wrongLetters, word, correctLetters, restartGame } = props;
+    const { wrongLetters, word, correctLetters } = props;
     const { setStartGamePage, setWrongLetters, setCorrectLetters, renderNewRound, handleKeydown } = props;
 
     const boardRef = useRef(null);
