@@ -50,3 +50,4 @@ describe('Confirm Word Page test', () => {
         expect(handleStartGamePage).not.toBeCalled();
     });
 });
+

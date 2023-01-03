@@ -8,8 +8,8 @@ import image5 from './images/5.jpg';
 import image6 from './images/6.jpg';
 
 const Images = (props) => {
-    const { wrongLetters } = props;
-    let mistake = wrongLetters.length;
+    const { mistakes } = props;
+    let mistake = mistakes.length;
     let image = '';
 
     if (mistake === 0) {

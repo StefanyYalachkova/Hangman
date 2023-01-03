@@ -23,3 +23,4 @@ const StartingScreen = (props) => {
 };
 
 export { StartingScreen };
+
